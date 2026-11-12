@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="KupujPC – počítače, komponenty a příslušenství.">
+  <title>KupujPC | PC komponenty a technika</title>
+  <style>
+    :root{--blue:#0878d1;--blue-dark:#0565b3;--ink:#17212b;--muted:#647382;--line:#e4eaf0;--bg:#f4f7fa;--white:#fff;--radius:15px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1180px,calc(100% - 36px));margin:auto}
+    .top{background:#102a43;color:#eaf4fc;font-size:12px;padding:8px 0}.top .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+    .head{height:76px;display:flex;align-items:center;gap:28px}
+    .logo{font-size:27px;font-weight:900;letter-spacing:-1.4px;color:var(--ink);white-space:nowrap}.logo span{color:var(--blue)}
+    .search{flex:1;display:flex;max-width:620px;border:2px solid var(--blue);border-radius:9px;overflow:hidden;background:#fff}
+    .search input{border:0;outline:0;padding:12px 14px;flex:1;min-width:0;font:inherit}.search button{border:0;background:var(--blue);color:white;padding:0 18px;font-weight:700;cursor:pointer}
+    .headnote{font-size:12px;color:var(--muted);text-align:right;white-space:nowrap}
+    nav{border-top:1px solid #f0f3f6}.nav{display:flex;gap:25px;overflow:auto;padding:12px 0;font-size:13px;font-weight:700;white-space:nowrap}.nav a:hover{color:var(--blue)}
+    .hero{margin:24px auto 18px;background:linear-gradient(110deg,#102a43,#145b91);color:white;border-radius:var(--radius);padding:38px 42px;display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden}
+    .hero small{color:#b9dafa;font-weight:800;text-transform:uppercase;letter-spacing:1.2px}.hero h1{font-size:clamp(29px,4vw,45px);line-height:1.08;letter-spacing:-1.5px;margin:10px 0}.hero p{color:#d9eafa;max-width:540px;margin:0 0 20px}.cta{display:inline-block;background:#fff;color:#075b9d;padding:12px 19px;border-radius:8px;font-weight:800}.hero-mark{font-size:100px;opacity:.18;font-weight:900;letter-spacing:-10px;padding-right:20px}
+    .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 28px}.benefit{background:#fff;border:1px solid var(--line);border-radius:11px;padding:14px 16px;font-weight:700;font-size:13px}.benefit span{color:var(--blue);margin-right:8px}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:28px 0 14px}.section-head h2{font-size:23px;letter-spacing:-.6px;margin:0}.section-head p{margin:3px 0 0;color:var(--muted);font-size:13px}
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 15px}.filter{border:1px solid var(--line);background:#fff;border-radius:30px;padding:8px 13px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}.filter.active,.filter:hover{background:#e7f3fc;border-color:#9bcdf2;color:#075b9d}
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px;display:flex;flex-direction:column;min-height:280px;transition:.18s}.card:hover{border-color:#9bcdf2;box-shadow:0 8px 24px #12334d0c;transform:translateY(-2px)}
+    .product-img{height:125px;border-radius:9px;background:linear-gradient(135deg,#f0f5f9,#e4edf5);display:grid;place-items:center;color:#8aa1b4;font-size:42px;margin-bottom:12px}.tag{font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--blue);font-weight:900}.card h3{font-size:15px;line-height:1.35;margin:5px 0 8px}.desc{font-size:12px;color:var(--muted);margin:0 0 14px}.price{font-size:19px;font-weight:900;margin-top:auto}.price small{font-size:11px;color:var(--muted);font-weight:500}.buy{display:block;text-align:center;background:var(--blue);color:#fff;padding:10px;border-radius:8px;font-size:13px;font-weight:800;margin-top:11px}.buy:hover{background:var(--blue-dark)}.buy.disabled{background:#e9eef3;color:#788795;pointer-events:none}
+    .notice{background:#fff8e8;border:1px solid #f1dfb5;color:#72551c;padding:13px 15px;border-radius:10px;font-size:12px;margin:18px 0 30px}
+    footer{background:#102a43;color:#dce8f2;margin-top:40px;padding:28px 0}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot strong{font-size:20px;color:white}.foot p{font-size:12px;color:#b9cbd9;margin:5px 0}
+    @media(max-width:900px){.products{grid-template-columns:repeat(2,1fr)}.headnote{display:none}.hero-mark{font-size:70px}}
+    @media(max-width:560px){.head{height:auto;padding:13px 0;flex-wrap:wrap;gap:12px}.logo{font-size:24px}.search{order:2;flex-basis:100%;max-width:none}.hero{padding:27px 22px}.hero-mark{display:none}.benefits{grid-template-columns:1fr}.products{grid-template-columns:1fr 1fr;gap:9px}.card{padding:10px;min-height:265px}.product-img{height:100px}.section-head h2{font-size:20px}}
+  </style>
+</head>
+<body>
+  <div class="top"><div class="wrap"><span>Vítejte v KupujPC</span><span>PC komponenty • Počítače • Příslušenství</span></div></div>
+  <header>
+    <div class="wrap head">
+      <a class="logo" href="#">Kupuj<span>PC</span></a>
+      <form class="search" id="searchForm"><input id="searchInput" type="search" placeholder="Co hledáte? Např. grafická karta…" aria-label="Hledat produkty"><button type="submit">Hledat</button></form>
+      <div class="headnote">Jednoduše. Přehledně.<br>Bezpečná platba přes Stripe.</div>
+    </div>
+    <nav><div class="wrap nav"><a href="#nabidka">Všechny produkty</a><a href="#nabidka" data-nav="Grafické karty">Grafické karty</a><a href="#nabidka" data-nav="Procesory">Procesory</a><a href="#nabidka" data-nav="Základní desky">Základní desky</a><a href="#nabidka" data-nav="Paměti RAM">Paměti RAM</a><a href="#nabidka" data-nav="PC sestavy">PC sestavy</a></div></nav>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <div><small>Váš obchod s počítačovou technikou</small><h1>Technika, kterou<br>chcete. Bez zbytečností.</h1><p>Vyberte si z nabídky počítačových komponentů a techniky. Objednávku dokončíte pohodlně online.</p><a class="cta" href="#nabidka">Prohlédnout nabídku</a></div>
+      <div class="hero-mark">PC</div>
+    </section>
+    <section class="benefits">
+      <div class="benefit"><span>✓</span> Přehledná nabídka produktů</div>
+      <div class="benefit"><span>✓</span> Bezpečná platba přes Stripe</div>
+      <div class="benefit"><span>✓</span> Kontakt přímo s prodejcem</div>
+    </section>
+    <section id="nabidka">
+      <div class="section-head"><div><h2>Aktuální nabídka</h2><p>Vyberte produkt a pokračujte k bezpečné platbě.</p></div></div>
+      <div class="filters" id="filters">
+        <button class="filter active" data-category="Vše">Vše</button>
+        <button class="filter" data-category="Grafické karty">Grafické karty</button>
+        <button class="filter" data-category="Procesory">Procesory</button>
+        <button class="filter" data-category="Základní desky">Základní desky</button>
+        <button class="filter" data-category="Paměti RAM">Paměti RAM</button>
+        <button class="filter" data-category="PC sestavy">PC sestavy</button>
+      </div>
+      <div class="products" id="products"></div>
+      <div class="notice"><strong>Upozornění pro správce:</strong> Toto je připravená šablona. Před zveřejněním nahraďte ukázkové produkty vlastní nabídkou, cenami a Stripe platebními odkazy. Zatím žádná platba není aktivní.</div>
+    </section>
+  </main>
+  <footer><div class="wrap foot"><div><strong>KupujPC</strong><p>Počítačová technika jednoduše.</p></div><div><strong>Kontakt</strong><p>Doplňte svůj e-mail a další kontaktní údaje.</p><p>© <span id="year"></span> KupujPC</p></div></div></footer>
+  <script>
+    // UPRAVUJTE PRODUKTY ZDE:
+    // stripeUrl vložte až po vytvoření Payment Linku ve Stripe.
+    const products = [
+      {name:"Grafická karta – doplňte model",category:"Grafické karty",price:"Doplňte cenu",description:"Doplňte stav, záruku a další informace.",icon:"▧",stripeUrl:""},
+      {name:"Procesor – doplňte model",category:"Procesory",price:"Doplňte cenu",description:"Doplňte přesný model a stav produktu.",icon:"▦",stripeUrl:""},
+      {name:"Základní deska – doplňte model",category:"Základní desky",price:"Doplňte cenu",description:"Doplňte socket, výbavu a stav.",icon:"▤",stripeUrl:""},
+      {name:"Paměti RAM – doplňte model",category:"Paměti RAM",price:"Doplňte cenu",description:"Doplňte kapacitu, frekvenci a stav.",icon:"▥",stripeUrl:""},
+      {name:"PC sestava – doplňte název",category:"PC sestavy",price:"Doplňte cenu",description:"Doplňte specifikaci celé sestavy.",icon:"▣",stripeUrl:""}
+    ];
+    let selected="Vše", query="";
+    const productsEl=document.getElementById("products");
+    function render(){
+      const filtered=products.filter(p=>(selected==="Vše"||p.category===selected)&&(`${p.name} ${p.category} ${p.description}`).toLowerCase().includes(query.toLowerCase()));
+      productsEl.innerHTML=filtered.length?filtered.map(p=>`<article class="card"><div class="product-img" aria-hidden="true">${p.icon}</div><div class="tag">${p.category}</div><h3>${p.name}</h3><p class="desc">${p.description}</p><div class="price">${p.price} <small></small></div><a class="buy ${p.stripeUrl?"":"disabled"}" href="${p.stripeUrl||"#"}" ${p.stripeUrl?'target="_blank" rel="noopener"':'aria-disabled="true"'}>${p.stripeUrl?"Koupit":"Platební odkaz se připravuje"}</a></article>`).join(""):'<p>Žádné produkty neodpovídají hledání.</p>';
+    }
+    document.getElementById("filters").addEventListener("click",e=>{const b=e.target.closest("button[data-category]");if(!b)return;selected=b.dataset.category;document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));render()});
+    document.querySelectorAll("[data-nav]").forEach(a=>a.addEventListener("click",()=>{selected=a.dataset.nav;document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x.dataset.category===selected));render()}));
+    document.getElementById("searchForm").addEventListener("submit",e=>{e.preventDefault();query=document.getElementById("searchInput").value.trim();render()});
+    document.getElementById("searchInput").addEventListener("input",e=>{query=e.target.value.trim();render()});
+    document.getElementById("year").textContent=new Date().getFullYear();render();
+  </script>
+</body>
+</html>
